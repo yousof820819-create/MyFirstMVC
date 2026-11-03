@@ -27,5 +27,5 @@ Route::get('/register', fn() => view('/register'));
 
 Route::post('/register',function (RegisterRequest $request){
    $data = $request->validate();
-   return view('/wait2',['data'=>$data]);
+   return view('/wait',['data'=>$data]);
 });
