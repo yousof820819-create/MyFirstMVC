@@ -11,7 +11,7 @@
 
 
 @elseif(session('failure'))
-    <p style="color: #4b0600"> {{session('failure')}} </p>
+    <p style="color: #d62719"> {{session('failure')}} </p>
 
 
 @endif
