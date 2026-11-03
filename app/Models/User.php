@@ -13,15 +13,15 @@ namespace App\Models;
      protected $hidden = ['password'];
      protected $casts = ['password' => 'hashed'];
 
-     public static function my_rules($id = null){
-         return [
-             'name' => 'required|max:191',
-             'last_name' => 'required|max:191',
-             'phone_number' => 'required|max:191|digits:11|unique:users,phone_number,'.$id,
-             'email' => 'required|max:191|email|unique',
-             'password' => 'required|max:191|hashed',
-         ];
-     }
+//     public static function my_rules($id = null){
+//         return [
+//             'name' => 'required|max:191',
+//             'last_name' => 'required|max:191',
+//             'phone_number' => 'required|max:191|digits:11|unique:users,phone_number,'.$id,
+//             'email' => 'required|max:191|email|unique',
+//             'password' => 'required|max:191|hashed',
+//         ];
+//     }
      public static function var_print($x)
      {
          echo "<pre>";

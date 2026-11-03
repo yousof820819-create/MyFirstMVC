@@ -19,7 +19,7 @@
         <input name="password" type="password">
 
         Confirmation Password :
-        <input name="confirmation" type="password">
+        <input name="password_confirmation" type="password">
 
         <button> Confirm </button>
 
