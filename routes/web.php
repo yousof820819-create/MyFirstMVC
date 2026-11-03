@@ -54,3 +54,14 @@ Route::get('/home', function(){
 //Route::get('/admin', function(){
 //    return view('admin', ['user_information' => Auth::user()]);
 //});
+
+
+Route::get('/admin',function(){
+   if (!session('is_admin')){
+       return redirect('/login');
+   }
+   return view('admin',['admin_name' => config('auth.admin_name'),
+       'admin_password' => config('auth.admin_password'),
+       'all_users' => User::all()
+   ]);
+});
