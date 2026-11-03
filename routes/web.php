@@ -15,10 +15,15 @@ Route::get('/login', fn() => view('/login'));
 //   $data = $request -> except('_token');
 //   return view('/wait2',['data'=>$data]);
 //});
-//Route::post('login' , function(Request $request) {
-//    User::
-//});
 
+
+Route::post('/login',function (Request $request){
+    $credit = $request->only('email','password');
+    if (Auth::attempt($credit)){
+        return view('wait');
+    }
+    return view('wait2');
+});
 
 // ---> register
 Route::get('/register', fn() => view('/register'));

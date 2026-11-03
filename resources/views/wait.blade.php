@@ -3,8 +3,8 @@
 @use('App\Models\User')
 
 
-<h1>
-    Information
+<h1 style="color: #5d8823">
+    Information --> Successfuly
 </h1>
 
 @endsection

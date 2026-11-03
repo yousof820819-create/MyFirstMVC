@@ -3,7 +3,7 @@
 @use('App\Models\User')
 
 
-    <h1>Information 2</h1>
+    <h1 style="color: #ac261b">Information --> failure</h1>
 {{--    <?php User::var_print($data);?>--}}
 
 
