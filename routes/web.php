@@ -25,7 +25,13 @@ Route::get('/register', fn() => view('/register'));
 //    return view('wait',['data_show'=>$data_show]);
 //});
 
-Route::post('/register',function (RegisterRequest $request){
-   $data = $request->validated();
-   return view('/wait',['data'=>$data]);
+//Route::post('/register',function (RegisterRequest $request){
+//   $data = $request->validated();
+//   return view('/wait',['data'=>$data]);
+//});
+
+
+Route::post('register',function (RegisterRequest $request){
+    User::create($request->validated());
+    return redirect('/login')->with('success', 'your registration was successful!');
 });

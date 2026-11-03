@@ -5,6 +5,11 @@
     Log in
 </h2>
 
+
+@if(session('success'))
+    <p style="color: #5d8823">{{session('success')}}</p>
+@endif
+
 <form method="post" action="/login">
 
     @csrf
