@@ -4,7 +4,7 @@
 
 
     <h1>Information 2</h1>
-    <?php User::var_print($data);?>
+{{--    <?php User::var_print($data);?>--}}
 
 
 @endsection

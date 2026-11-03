@@ -12,3 +12,4 @@ CREATE TABLE IF NOT EXISTS users(
     deleted_at      TIMESTAMP NULL DEFAULT NULL,
     updated_at      TIMESTAMP NULL DEFAULT NULL
     ) ENGINE=InnoDB;
+-- correct
