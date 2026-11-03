@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use Illuminate\Validation\Rules\password;
+use Illuminate\Validation\Rules\Password;
 
 
 class RegisterRequest extends FormRequest{
@@ -19,10 +19,10 @@ class RegisterRequest extends FormRequest{
             'last_name' => ['required' , 'string' , 'max:191'],
             'phone_number' => ['required', 'digits:11',Rule::unique('users','phone_number')],
             'email' => ['required','email','max:191',Rule::unique('users','email')],
-            'password' => ['required','confirmed',password::min(8)->max(20)],
+            'password' => ['required','confirmed',Password::min(8)->max(20)],
         ];}
 
-    public function massages(): array
+    public function messages(): array
         {
             return [
               'name.required' => 'the name is required',
