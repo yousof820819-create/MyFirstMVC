@@ -1,0 +1,42 @@
+========================================================================================================================
+Web.php :
+
+<?php
+
+use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Models\User;
+
+
+Route::get('/', fn() => redirect('/login'));
+Route::get('/login', fn() => view('/login'));
+
+// test shakhsi
+//Route::get('/',fn() => view('/yousof_test'));
+//Route::get('/yousof_test', fn() => view('/yousof_test'));
+
+//Route::post('/login', fn() => view('/wait'));
+
+Route::post('/login',function (Request $request){
+   $data = $request -> except('_token');
+   return view('/wait2',['data'=>$data]);
+});
+
+
+Route::get('/register', fn() => view('/register'));
+
+Route::post('register',function(Request $request){
+//    dd($request -> all());
+    $data = $request->except('_token');
+//    User::var_print($data);
+    return view('wait',['data'=>$data]);
+
+
+//    return view('/wait');
+//     var_dump($request->all());
+//    die();
+//    $x = new User;
+//    $x ->var_print($request->all());
+//    die();
+});
+========================================================================================================================
