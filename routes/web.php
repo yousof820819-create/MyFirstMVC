@@ -50,7 +50,7 @@ Route::get('/home', function(){
 });
 
 
-//--------------------->>>   home    --------------------->>>
-Route::get('/admin', function(){
-    return view('admin', ['user_information' => Auth::user()]);
-});
+//--------------------->>>   admin    --------------------->>>
+//Route::get('/admin', function(){
+//    return view('admin', ['user_information' => Auth::user()]);
+//});
