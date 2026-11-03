@@ -48,3 +48,9 @@ Route::post('register',function (RegisterRequest $request){
 Route::get('/home', function(){
     return view('home', ['user_information' => Auth::user()]);
 });
+
+
+//--------------------->>>   home    --------------------->>>
+Route::get('/admin', function(){
+    return view('admin', ['user_information' => Auth::user()]);
+});
