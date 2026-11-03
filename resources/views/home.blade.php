@@ -2,7 +2,7 @@
 @section('content')
 
 <h1>
-    Welcome
+    Welcome {{$user_information->name}}
 </h1>
 
 
