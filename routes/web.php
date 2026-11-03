@@ -7,15 +7,10 @@ use App\Http\Requests\RegisterRequest;
 use Illuminate\Support\Facades\Auth;
 
 
-// ---> Log in methods
+// ---> Log in methods --->
 Route::get('/', fn() => redirect('/login'));
+
 Route::get('/login', fn() => view('/login'));
-
-//Route::post('/login',function (Request $request){
-//   $data = $request -> except('_token');
-//   return view('/wait2',['data'=>$data]);
-//});
-
 
 Route::post('/login',function (Request $request){
     $credit = $request->only('email','password');
@@ -25,20 +20,8 @@ Route::post('/login',function (Request $request){
     return redirect('/login')->with('failure','Email or Password is incorrect');
 });
 
-// ---> register
+// ---> register --->
 Route::get('/register', fn() => view('/register'));
-
-//Route::post('register',function(Request $request_show , RegisterRequest $request){
-//    $data2 = $request_show->except('_token');
-//    $data = $request->validate();
-//    return view('wait',['data_show'=>$data_show]);
-//});
-
-//Route::post('/register',function (RegisterRequest $request){
-//   $data = $request->validated();
-//   return view('/wait',['data'=>$data]);
-//});
-
 
 Route::post('register',function (RegisterRequest $request){
     User::create($request->validated());
