@@ -22,7 +22,7 @@ Route::post('/login',function (Request $request){
     if (Auth::attempt($credit)){
         return view('wait');
     }
-    return view('wait2');
+    return redirect('/login')->with('failure','Email or Password is incorrect');
 });
 
 // ---> register

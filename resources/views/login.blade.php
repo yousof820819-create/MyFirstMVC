@@ -8,7 +8,15 @@
 
 @if(session('success'))
     <p style="color: #5d8823">{{session('success')}}</p>
+
+
+@elseif(session('failure'))
+    <p style="color: #4b0600"> {{session('failure')}} </p>
+
+
 @endif
+
+
 
 <form method="post" action="/login">
 
