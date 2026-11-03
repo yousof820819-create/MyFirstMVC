@@ -32,7 +32,7 @@ Route::post('register',function (RegisterRequest $request){
 //home -->
 
 //
-//Route::get('/home',function (Request $user){
-//    view('/home')->with('user',$user);
+//Route::get('/home',function (Request $request){
+//    view('/home')->with('user',$request);
 //});
-Route::get('/home', fn() => view('/home'));
+//Route::get('/home', fn() => view('/home'));
