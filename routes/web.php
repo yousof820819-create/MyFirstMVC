@@ -35,4 +35,4 @@ Route::post('register',function (RegisterRequest $request){
 //Route::get('/home',function (Request $request){
 //    view('/home')->with('user',$request);
 //});
-//Route::get('/home', fn() => view('/home'));
+Route::get('/home', fn() => view('/home'));
