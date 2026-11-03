@@ -11,10 +11,14 @@ use App\Http\Requests\RegisterRequest;
 Route::get('/', fn() => redirect('/login'));
 Route::get('/login', fn() => view('/login'));
 
-Route::post('/login',function (Request $request){
-   $data = $request -> except('_token');
-   return view('/wait2',['data'=>$data]);
-});
+//Route::post('/login',function (Request $request){
+//   $data = $request -> except('_token');
+//   return view('/wait2',['data'=>$data]);
+//});
+//Route::post('login' , function(Request $request) {
+//    User::
+//});
+
 
 // ---> register
 Route::get('/register', fn() => view('/register'));
