@@ -13,6 +13,14 @@ Route::get('/', fn() => redirect('/login'));
 Route::get('/login', fn() => view('/login'));
 
 Route::post('/login',function (Request $request){
+    $admin_email = config('auth.admin_name');
+    $admin_password = config('auth.admin_password');
+
+    if ($admin_email && $admin_password && $request->email == $admin_email && $request->password == $admin_password) {
+        $request->session()->put('is_admin', true);
+        return redirect('/admin');
+    }
+
     $credit = $request->only('email','password');
     if (Auth::attempt($credit)){
         return redirect('/home');
