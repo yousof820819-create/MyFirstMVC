@@ -46,8 +46,8 @@
                 @endif
 
                 <th>
-                    <a href="">edit</a>
-                    <a href="">delete</a>
+                    <a href="/edit">edit</a>
+                    <a href="/delete">delete</a>
                 </th>
             </tr>
         @endforeach

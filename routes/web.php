@@ -65,3 +65,10 @@ Route::get('/admin',function(){
        'all_users' => User::all()
    ]);
 });
+
+
+//--------------------->>>   admin    --------------------->>>
+
+Route::get('edit',function(){
+    return view('edit');
+});
