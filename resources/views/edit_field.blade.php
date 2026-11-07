@@ -5,7 +5,7 @@
         @csrf
         <p>PERVIOUS {{$field}} : {{$edit_user->$field}}</p>
         <p>New {{$field}}</p>
-        <input name="new_{{$field}}">
+        <input name="value" value="{{ old('value') }}">
 
         <button>Confirm</button>
     </form>

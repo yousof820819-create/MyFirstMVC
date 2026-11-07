@@ -61,62 +61,76 @@ Route::get('/admin',function(){
    }
    return view('admin',['admin_name' => config('auth.admin_name'),
        'admin_password' => config('auth.admin_password'),
-       'all_users' => User::all()
+       'all_users' => User::withTrashed()->get()
    ]);
 });
 
 
 //--------------------->>>   edit    --------------------->>>
-//
-//Route::get('edit/{id}',function($id){
-////    return view('edit');
-////    if (!session('is_admin')){
-////        return redirect('/login');
-////    }
-//    $user = User::find($id);
-//    return view('edit',['edit_user' => $user]);
-//});
-//
-//
-//
-//Route::get('edit/{id}/{field}',function($id,$field){
-//
-//    $user = User::find($id);
-//    return view('edit_field',['edit_user' => $user,'field' => $field]);
-//});
-//
-//Route::post('edit/{id}/{field}',function(UpdateUserRequest $request,$id,$field){
-//    $user = User::find($id);
-//    $user->update([$field => $request->validated()['value']]);
-//
-//    return redirect('/edit/'.$id)->with('success', 'Your data has been updated!');
-//});
-//--------------------->>>   edit Ai   --------------------->>>
 
-Route::get('edit/{id}', function ($id) {
-    if (!session('is_admin')) {
-        return redirect('/login');
-    }
-    $user = User::findOrFail($id);
-    return view('edit', ['edit_user' => $user]);
+Route::get('edit/{id}',function($id){
+//    return view('edit');
+//    if (!session('is_admin')){
+//        return redirect('/login');
+//    }
+    $user = User::find($id);
+    return view('edit',['edit_user' => $user]);
 });
 
-Route::get('edit/{id}/{field}', function ($id, $field) {
-    if (!session('is_admin')) {
-        return redirect('/login');
-    }
-    if (!in_array($field, ['name', 'last_name', 'email', 'phone_number'])) {
-        abort(404);
-    }
-    $user = User::findOrFail($id);
-    return view('edit_field', ['edit_user' => $user, 'field' => $field]);
+
+
+Route::get('edit/{id}/{field}',function($id,$field){
+
+    $user = User::find($id);
+    return view('edit_field',['edit_user' => $user,'field' => $field]);
 });
 
-Route::post('edit/{id}/{field}', function (UpdateUserRequest $request, $id, $field) {
-    $user = User::findOrFail($id);
+Route::post('edit/{id}/{field}',function(UpdateUserRequest $request,$id,$field){
+    $user = User::find($id);
     $user->update([$field => $request->validated()['value']]);
 
-    return redirect('/edit/' . $id)->with('ok', 'Your ' . $field . ' has been updated!');
+    return redirect('/edit/'.$id)->with('success', 'Your data has been updated!');
+});
+//--------------------->>>   edit Ai   --------------------->>>
+
+//Route::get('edit/{id}', function ($id) {
+//    if (!session('is_admin')) {
+//        return redirect('/login');
+//    }
+//    $user = User::findOrFail($id);
+//    return view('edit', ['edit_user' => $user]);
+//});
+//
+//Route::get('edit/{id}/{field}', function ($id, $field) {
+//    if (!session('is_admin')) {
+//        return redirect('/login');
+//    }
+//    if (!in_array($field, ['name', 'last_name', 'email', 'phone_number'])) {
+//        abort(404);
+//    }
+//    $user = User::findOrFail($id);
+//    return view('edit_field', ['edit_user' => $user, 'field' => $field]);
+//});
+//
+//Route::post('edit/{id}/{field}', function (UpdateUserRequest $request, $id, $field) {
+//    $user = User::findOrFail($id);
+//    $user->update([$field => $request->validated()['value']]);
+//
+//    return redirect('/edit/' . $id)->with('ok', 'Your ' . $field . ' has been updated!');
+//});
+//--------------------->>>   logout    --------------------->>>
+Route::post('logout',function (Request $request){
+    Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    return redirect('/');
 });
 
 //--------------------->>>   delete    --------------------->>>
+Route::post('/delete/{id}',function ($id){
+    if (!session('is_admin')){
+        return redirect('/');
+    }
+    User::find($id)->delete();
+    return redirect('/home')->with('success', 'Your data has been deleted!');
+});
