@@ -39,22 +39,37 @@
 {{--                    <th>Not Deleted yet</th>--}}
 {{--                @endif--}}
 
-                @if(isset($this_user->deleted_at))
+{{--                @if(isset($this_user->deleted_at))--}}
+{{--                    <th>{{$this_user->deleted_at}}</th>--}}
+{{--                @else--}}
+{{--                    <th>Not deleted yet</th>--}}
+{{--                @endif--}}
+
+{{--                <th>--}}
+{{--                    <a href="/edit/{{$this_user->id}}">edit</a>--}}
+{{--                    <a href="/delete">delete</a>--}}
+{{--                </th>--}}
+{{--            </tr>--}}
+            @if($this_user->deleted_at)
                     <th>{{$this_user->deleted_at}}</th>
                     <th>-</th>
-                @else
+            @else
                     <th>Not deleted yet</th>
-                @endif
-
-                <th>
-                    <a href="/edit/{{$this_user->id}}">edit</a>
-                    <a href="/delete">delete</a>
-                </th>
-            </tr>
+                    <th>
+                        <a href="/edit/{{$this_user->id}}">Edit</a>
+                        <form method="post" action="/deleted/{{$this_user->id}}" class="inline" onsubmit="return confirm('delete this user ?')">
+                            @csrf
+                            <button>delete</button>
+                        </form>
+                    </th>
+            @endif
         @endforeach
     </table>
 
 
-
+<form method="post" action="/logout" class="inline">
+    @csrf
+    <button>Logout</button>
+</form>
 
 @endsection
