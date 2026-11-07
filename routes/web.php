@@ -75,7 +75,7 @@ Route::get('edit/{id}',function($id){
         return redirect('/login');
     }
     $user = User::find($id);
-    return view('edit',['user' => $user]);
+    return view('edit',['edit_user' => $user]);
 });
 
 
