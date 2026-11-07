@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 
-    <form action="edit/{action}">
+    <form action="edit/{{$edit_user->id}}/{{$field}}">
         @csrf
         <p>PERVIOUS {{$field}} : {{$edit_user->$field}}</p>
         <p>New {{$field}}</p>
@@ -10,4 +10,5 @@
         <button>Confirm</button>
     </form>
 
+    <a href="/edit/{{$edit_user->id}}"> Back </a>
 @endsection

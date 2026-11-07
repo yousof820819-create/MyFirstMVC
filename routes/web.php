@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Validation\Rule;
 
 //--------------------->>>   Login    --------------------->>>
 Route::get('/', fn() => redirect('/login'));
@@ -85,6 +85,12 @@ Route::get('edit/{id}/{field}',function($id,$field){
     $user = User::find($id);
     return view('edit_field',['edit_user' => $user,'field' => $field]);
 });
+
+//Route::post('edit/{id}/{field}',function($id,$field,Request $request){
+//    $rules = [
+//
+//    ];
+//});
 
 
 //--------------------->>>   delete    --------------------->>>
