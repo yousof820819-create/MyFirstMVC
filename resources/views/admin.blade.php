@@ -24,11 +24,11 @@
         @foreach(@$all_users as $this_user)
             <tr>
                 <th>{{$this_user->name}}</th>
-                <th>{{$this_user->Last_name}}</th>
+                <th>{{$this_user->last_name}}</th>
                 <th>{{$this_user->email}}</th>
                 <th>{{$this_user->phone_number}}</th>
-{{--                <th>{{$this_user->}}</th>--}}
-{{--                <th>{{$this_user->}}</th>--}}
+                <th>{{$this_user->created_at}}</th>
+                <th>{{$this_user->updated_at}}</th>
             </tr>
         @endforeach
     </table>
