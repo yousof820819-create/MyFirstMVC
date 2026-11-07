@@ -67,29 +67,56 @@ Route::get('/admin',function(){
 
 
 //--------------------->>>   edit    --------------------->>>
+//
+//Route::get('edit/{id}',function($id){
+////    return view('edit');
+////    if (!session('is_admin')){
+////        return redirect('/login');
+////    }
+//    $user = User::find($id);
+//    return view('edit',['edit_user' => $user]);
+//});
+//
+//
+//
+//Route::get('edit/{id}/{field}',function($id,$field){
+//
+//    $user = User::find($id);
+//    return view('edit_field',['edit_user' => $user,'field' => $field]);
+//});
+//
+//Route::post('edit/{id}/{field}',function(UpdateUserRequest $request,$id,$field){
+//    $user = User::find($id);
+//    $user->update([$field => $request->validated()['value']]);
+//
+//    return redirect('/edit/'.$id)->with('success', 'Your data has been updated!');
+//});
+//--------------------->>>   edit Ai   --------------------->>>
 
-Route::get('edit/{id}',function($id){
-//    return view('edit');
-//    if (!session('is_admin')){
-//        return redirect('/login');
-//    }
-    $user = User::find($id);
-    return view('edit',['edit_user' => $user]);
+Route::get('edit/{id}', function ($id) {
+    if (!session('is_admin')) {
+        return redirect('/login');
+    }
+    $user = User::findOrFail($id);
+    return view('edit', ['edit_user' => $user]);
 });
 
-
-
-Route::get('edit/{id}/{field}',function($id,$field){
-
-    $user = User::find($id);
-    return view('edit_field',['edit_user' => $user,'field' => $field]);
+Route::get('edit/{id}/{field}', function ($id, $field) {
+    if (!session('is_admin')) {
+        return redirect('/login');
+    }
+    if (!in_array($field, ['name', 'last_name', 'email', 'phone_number'])) {
+        abort(404);
+    }
+    $user = User::findOrFail($id);
+    return view('edit_field', ['edit_user' => $user, 'field' => $field]);
 });
 
-Route::post('edit/{id}/{field}',function(UpdateUserRequest $request,$id,$field){
-    $user = User::find($id);
+Route::post('edit/{id}/{field}', function (UpdateUserRequest $request, $id, $field) {
+    $user = User::findOrFail($id);
     $user->update([$field => $request->validated()['value']]);
 
-    return redirect('/edit/'.$id)->with('success', 'Your data has been updated!');
+    return redirect('/edit/' . $id)->with('ok', 'Your ' . $field . ' has been updated!');
 });
 
 //--------------------->>>   delete    --------------------->>>
