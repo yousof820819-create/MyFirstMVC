@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 
-    <form action="edit/{{$edit_user->id}}/{{$field}}">
+    <form method="post" action="edit/{{$edit_user->id}}/{{$field}}">
         @csrf
         <p>PERVIOUS {{$field}} : {{$edit_user->$field}}</p>
         <p>New {{$field}}</p>

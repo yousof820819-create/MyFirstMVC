@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Support\Facades\Auth;
-use App\http\Requests\UpdateUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 //--------------------->>>   Login    --------------------->>>
 Route::get('/', fn() => redirect('/login'));
 
@@ -89,7 +89,7 @@ Route::post('edit/{id}/{field}',function(UpdateUserRequest $request,$id,$field){
     $user = User::find($id);
     $user->update([$field => $request->validated()['value']]);
 
-    return redirect('/edit/'.$id)->with('success', 'Your {{$field}} has been updated!');
+    return redirect('/edit/'.$id)->with('success', 'Your data has been updated!');
 });
 
 //--------------------->>>   delete    --------------------->>>
