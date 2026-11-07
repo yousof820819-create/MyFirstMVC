@@ -44,7 +44,7 @@
         <td>Phone Number</td>
         <td>{{$user_information->phone_number}}</td>
     </tr>
-
+    <p><a href="/"> Logout </a></p>
 </table>
 
 
