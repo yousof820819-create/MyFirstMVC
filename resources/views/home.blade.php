@@ -3,6 +3,7 @@
 
 <h1>
     Welcome {{$user_information->name}}
+{{--    {{$user_information->created_at}}--}}{{--  ---> date--}}
 </h1>
 
 {{--    <h2>--}}

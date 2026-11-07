@@ -21,6 +21,16 @@
             <th>Registered At</th>
             <th>Lats Update</th>
         </tr>
+        @foreach(@$all_users as $this_user)
+            <tr>
+                <th>{{$this_user->name}}</th>
+                <th>{{$this_user->Last_name}}</th>
+                <th>{{$this_user->email}}</th>
+                <th>{{$this_user->phone_number}}</th>
+{{--                <th>{{$this_user->}}</th>--}}
+{{--                <th>{{$this_user->}}</th>--}}
+            </tr>
+        @endforeach
     </table>
 
 
