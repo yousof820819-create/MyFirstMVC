@@ -29,6 +29,7 @@
                 <th>{{$this_user->phone_number}}</th>
                 <th>{{$this_user->created_at}}</th>
                 <th>{{$this_user->updated_at}}</th>
+                <th>{{@isset($this_user->deleted_at)}}</th>
             </tr>
         @endforeach
     </table>
