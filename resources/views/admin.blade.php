@@ -21,6 +21,7 @@
             <th>Registered At</th>
             <th>Lats Update</th>
             <th>Delete status</th>
+            <th>Update/Delete</th>
         </tr>
         @foreach(@$all_users as $this_user)
             <tr>
@@ -37,9 +38,17 @@
 {{--                @elseif(var_dump($this_user->deleted_at)==null)--}}
 {{--                    <th>Not Deleted yet</th>--}}
 {{--                @endif--}}
+
                 @if(isset($this_user->deleted_at))
+                    <th>{{$this_user->deleted_at}}</th>
                 @else
+                    <th>Not deleted yet</th>
                 @endif
+
+                <th>
+                    <a href="">edit</a>
+                    <a href="">delete</a>
+                </th>
             </tr>
         @endforeach
     </table>
