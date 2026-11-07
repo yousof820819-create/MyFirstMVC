@@ -1,12 +1,11 @@
 @extends('layout')
 @section('content')
 
-    <form>
-        <p>Last Name : {{$edit_user->name}}</p>
-
-        <p>  </p>
-        <p>New Name</p>
-        <input name="new_name">
+    <form action="edit/{action}">
+        @csrf
+        <p>PERVIOUS {{$field}} : {{$edit_user->$field}}</p>
+        <p>New {{$field}}</p>
+        <input name="new_{{$field}}">
 
         <button>Confirm</button>
     </form>

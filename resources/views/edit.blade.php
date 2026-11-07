@@ -26,7 +26,7 @@
             <tr>
                 <td>Phone Number</td>
                 <td>{{$edit_user->phone_number}}</td>
-                <td><a href="/edit/{{$edit_user->id}}/email">edit</a></td>
+                <td><a href="/edit/{{$edit_user->id}}/phone_number">edit</a></td>
             </tr>
 
         </table>
