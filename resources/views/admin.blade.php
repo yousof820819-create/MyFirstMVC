@@ -57,12 +57,13 @@
                     <th>Not deleted yet</th>
                     <th>
                         <a href="/edit/{{$this_user->id}}">Edit</a>
-                        <form method="post" action="/deleted/{{$this_user->id}}" class="inline" onsubmit="return confirm('delete this user ?')">
+                        <form method="post" action="/delete/{{$this_user->id}}" class="inline" onsubmit="return confirm('delete this user ?')">
                             @csrf
                             <button>delete</button>
                         </form>
                     </th>
             @endif
+            </tr>
         @endforeach
     </table>
 
