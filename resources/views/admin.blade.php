@@ -41,6 +41,7 @@
 
                 @if(isset($this_user->deleted_at))
                     <th>{{$this_user->deleted_at}}</th>
+                    <th>-</th>
                 @else
                     <th>Not deleted yet</th>
                 @endif

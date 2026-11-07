@@ -32,7 +32,8 @@ Route::post('/login',function (Request $request){
 Route::get('/register', fn() => view('/register'));
 
 
-Route::post('register',function (RegisterRequest $request){
+Route::
+post('register',function (RegisterRequest $request){
     User::create($request->validated());
     return redirect('/login')->with('success', 'your registration was successful!');
 });
