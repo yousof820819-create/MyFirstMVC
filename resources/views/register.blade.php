@@ -25,4 +25,5 @@
 
     </form>
 
+    <a href="/"> Login </a>
 @endsection
