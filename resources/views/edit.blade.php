@@ -2,7 +2,7 @@
 @section('content')
     <h1>edit page</h1>
     <h3>
-        <table border="5">
+        <table border="1">
             <tr>
                 <th>SUBJECT</th>
                 <th>VALUE</th>

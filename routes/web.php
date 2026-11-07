@@ -71,13 +71,20 @@ Route::get('/admin',function(){
 
 Route::get('edit/{id}',function($id){
 //    return view('edit');
-    if (!session('is_admin')){
-        return redirect('/login');
-    }
+//    if (!session('is_admin')){
+//        return redirect('/login');
+//    }
     $user = User::find($id);
     return view('edit',['edit_user' => $user]);
 });
 
+
+
+Route::get('edit/{id}/{field}',function($id,$field){
+
+    $user = User::find($id);
+    return view('edit_field',['edit_user' => $user,'field' => $field]);
+});
 
 
 //--------------------->>>   delete    --------------------->>>
