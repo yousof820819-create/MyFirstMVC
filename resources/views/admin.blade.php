@@ -20,6 +20,7 @@
             <th>Phone Number</th>
             <th>Registered At</th>
             <th>Lats Update</th>
+            <th>Delete status</th>
         </tr>
         @foreach(@$all_users as $this_user)
             <tr>
@@ -29,7 +30,16 @@
                 <th>{{$this_user->phone_number}}</th>
                 <th>{{$this_user->created_at}}</th>
                 <th>{{$this_user->updated_at}}</th>
-                <th>{{@isset($this_user->deleted_at)}}</th>
+
+{{--                @if(var_dump($this_user->deleted_at)!==null)--}}
+{{--                    <th>{{$this_user->deleted_at}}</th>--}}
+{{--                    --}}
+{{--                @elseif(var_dump($this_user->deleted_at)==null)--}}
+{{--                    <th>Not Deleted yet</th>--}}
+{{--                @endif--}}
+                @if(isset($this_user->deleted_at))
+                @else
+                @endif
             </tr>
         @endforeach
     </table>

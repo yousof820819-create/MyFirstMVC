@@ -2,8 +2,14 @@
 <?php
 
 
+//
+//$lst = [1,2,3,4,5,6,7,8,9,0];
+//foreach ($lst as $i){
+//    echo $i."\n";
+//}
 
-$lst = [1,2,3,4,5,6,7,8,9,0];
-foreach ($lst as $i){
-    echo $i."\n";
-}
+$x = null;
+
+$y = 12;
+
+print_r(isset($y));
