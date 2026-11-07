@@ -132,6 +132,6 @@ Route::post('/delete/{id}',function ($id){
     if (!session('is_admin')){
         return redirect('/');
     }
-    User::find($id)->delete();
-    return redirect('/home')->with('success', 'Your data has been deleted!');
+    User::findOrFail($id)->delete();
+    return redirect('/admin')->with('success', 'Your data has been deleted!');
 });
