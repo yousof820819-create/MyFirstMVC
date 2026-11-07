@@ -46,7 +46,7 @@
                 @endif
 
                 <th>
-                    <a href="/edit">edit</a>
+                    <a href="/edit/{{$this_user->id}}">edit</a>
                     <a href="/delete">delete</a>
                 </th>
             </tr>

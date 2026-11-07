@@ -69,8 +69,13 @@ Route::get('/admin',function(){
 
 //--------------------->>>   edit    --------------------->>>
 
-Route::get('edit',function(){
-    return view('edit');
+Route::get('edit/{id}',function($id){
+//    return view('edit');
+    if (!session('is_admin')){
+        return redirect('/login');
+    }
+    $user = User::find($id);
+    return view('edit',['user' => $user]);
 });
 
 
